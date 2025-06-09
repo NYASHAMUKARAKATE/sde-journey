@@ -7,5 +7,6 @@
 ### Benchmark Results  
 | Approach      | Time (n=35) |  
 --------------------------------  
- Naive                    
- Memoized                
+ Naive            1.4509754180908203
+                   9227465         
+ Memoized         0.0     
