@@ -15,12 +15,13 @@ def fib(n):
 # Manual memoization  
 memo = {}  
 def fib_memo(n):  
-    if n in memo:  
-        return memo[n]  
+   from functools import lru_cache  
+
+@lru_cache(maxsize=None)  
+def fib_lru(n):  
     if n <= 1:  
         return n  
-    memo[n] = fib_memo(n - 1) + fib_memo(n - 2)  
-    return memo[n]  
+    return fib_lru(n-1) + fib_lru(n-2)  
 
 # Benchmark  
 start = time.time()  
