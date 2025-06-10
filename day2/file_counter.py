@@ -1,14 +1,23 @@
-import os  
+import os
 
-def count_py_files(path):  
-    total = 0  
-    for entry in os.listdir(path):  
-        full_path = os.path.join(path, entry)  
-        if os.path.isdir(full_path):  
-            total += count_py_files(full_path)  
-        elif entry.endswith(".py"):  
-            print(f"Found Python file: {full_path}")
-            total += 1  
-    return total  
+ignore_dirs = {".git", "__pycache__"}
 
-print(f"Total .py files: {count_py_files('.')}")  
+def count_py_files(path):
+    total = 0
+    for entry in os.listdir(path):
+        if entry in ignore_dirs:
+            continue
+        full_path = os.path.join(path, entry)
+        if os.path.isdir(full_path):
+            total += count_py_files(full_path)
+        elif entry.lower().endswith(".py"):
+            try:
+                with open(full_path, "r", encoding="utf-8") as f:  # Force UTF-8
+                    lines = len(f.readlines())
+                print(f"Found: {full_path} ({lines} lines)")
+                total += 1
+            except UnicodeDecodeError:
+                print(f"Skipped: {full_path} (invalid encoding)")
+    return total
+
+print(f"\nTotal .py files: {count_py_files('.')}")
