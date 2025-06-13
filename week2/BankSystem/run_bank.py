@@ -1,11 +1,25 @@
-"""this will let you run the bank account"""
+from bank import BankAccount, SavingsAccount, BankStorage
+from bank.security.passwords import create_password, check_password
 
-from bank.accounts.core import BankAccount
-from bank.security.passwords import create_password
+def main():
+    # Setup
+    storage = BankStorage()
+    accounts = storage.load() or {}
+    
+    # Open new account
+    if "nyasha" not in accounts:
+        nyasha_acc = SavingsAccount("Nyasha", rate=0.05, starting_balance=1000)
+        nyasha_acc.password_hash = create_password("secure123")
+        accounts["nyasha"] = nyasha_acc
+    
+    # Monthly interest
+    accounts["nyasha"].add_interest()
+    
+    # Save everything
+    storage.save(accounts)
+    
+    print(f"Nyasha's balance: ${accounts['nyasha'].balance:.2f}")
+    print("Recent activity:", accounts["nyasha"].history[-2:])
 
-# Openning a new account
-my_account = BankAccount("Nyasha", 100)
-
-my_account.deposit(50)
-print(f"Balance: ${my_account.balance}")
-print("Recent activity:", my_account.history[-1])
+if __name__ == "__main__":
+    main()
