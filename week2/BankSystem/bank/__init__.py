@@ -1,5 +1,3 @@
-"""What customers interact with - like bank tellers"""
-
 from .accounts.core import BankAccount
 from .accounts.savings import SavingsAccount
 from .database.storage import BankStorage
