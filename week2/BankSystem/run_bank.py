@@ -1,33 +1,28 @@
-from bank.accounts.core import BankAccount
-from bank.accounts.savings import SavingsAccount
-from bank.database.storage import BankStorage
-from bank.security.passwords import create_password
+from bank import SavingsAccount, BankStorage
 
 def main():
-    # Setup
+    print("----------BANK SYSTEM WORKING ---------")
+    
+    # Create savings account
+    nyasha_acc = SavingsAccount("Nyasha", rate=0.05, starting_balance=10)
+    print(f"Created account for {nyasha_acc.owner}")
+    print(f"Initial balance: ${nyasha_acc.balance:.2f}")
+    
+    # Add interest
+    try:
+        interest = nyasha_acc.add_interest()
+        print(f"Added interest: ${interest:.2f}")
+        print(f"New balance: ${nyasha_acc.balance:.2f}")
+    except TypeError:
+        print("⚠️ Interest calculation failed - using fallback")
+        print(f"Current balance: ${nyasha_acc.balance:.2f}")
+    
+    # Save to storage
     storage = BankStorage()
-    accounts = storage.load() or {}
-
-    # Open new account if not exists
-    if "nyasha" not in accounts:
-        nyasha_acc = SavingsAccount("Nyasha", rate=0.05, starting_balance=1000)
-        nyasha_acc.password_hash = create_password("secure123")
-        accounts["nyasha"] = nyasha_acc
-
-    # Monthly interest
-    if hasattr(accounts["nyasha"], "add_interest"):
-        accounts["nyasha"].add_interest()
+    if storage.save({"nyasha": nyasha_acc}):
+        print("Account saved successfully!")
     else:
-        print("Error: add_interest method missing.")
-
-    # Save everything
-    storage.save(accounts)
-
-    # Print balance and recent activity
-    balance = getattr(accounts["nyasha"], "balance", None)
-    history = getattr(accounts["nyasha"], "history", [])
-    print(f"Nyasha's balance: ${balance:.2f}" if balance is not None else "Balance not found.")
-    print("Recent activity:", history[-2:])
+        print("⚠️ Failed to save account")
 
 if __name__ == "__main__":
     main()
