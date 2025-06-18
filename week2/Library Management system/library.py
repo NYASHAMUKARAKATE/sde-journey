@@ -1,20 +1,24 @@
-class Library:
-    def __init__(self):
-        self.books = []
-
-    def add_book(self, book):
-        self.books.append(book)
-
-    def remove_book(self, book):
-        self.books.remove(book)
-
-    def find_book(self, title):
-        for book in self.books:
-            if book.title == title:
-                return book
-        return None
-
-    def list_books(self):
-        return self.books
-   
+class Member:
+    def __init__(self, name, member_id, email):
+        self.name = name
+        self.member_id = member_id
+        self.email = email
+        self.borrowed_books = []
+        self.fees = 0.0
     
+    def borrow_book(self, book):
+        if book.is_available:
+            self.borrowed_books.append(book)
+            book.is_available = False
+            return True
+        return False
+    
+    def return_book(self, book):
+        if book in self.borrowed_books:
+            self.borrowed_books.remove(book)
+            book.is_available = True
+            return True
+        return False
+    
+    def search_match(self, query):
+        return query.lower() in self.name.lower()
