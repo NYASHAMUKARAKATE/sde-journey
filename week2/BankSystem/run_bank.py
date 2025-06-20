@@ -1,10 +1,15 @@
 from bank import SavingsAccount, BankStorage
+from bank.security.passwords import create_password
 
 def main():
     print("----------BANK SYSTEM WORKING ---------")
     
-    # Create savings account
+    # Create savings account with password
+    password = input("Set a password for your account: ")
+    password_hash = create_password(password)
     nyasha_acc = SavingsAccount("Nyasha", rate=0.05, starting_balance=10)
+    nyasha_acc.password_hash = password_hash  # Store the hashed password
+
     print(f"Created account for {nyasha_acc.owner}")
     print(f"Initial balance: ${nyasha_acc.balance:.2f}")
     
