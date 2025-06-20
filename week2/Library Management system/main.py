@@ -1,16 +1,22 @@
 from library import Library
 from book import Book
+from member import Member
 
 def main():
     lib = Library()
+
     
+    if not lib.db.find_book("9780743273565"):
+        lib.add_new_book("The Great Gatsby", "F. Scott Fitzgerald", "9780743273565")
+    if not lib.db.find_book("9780446310789"):
+        lib.add_new_book("To Kill a Mockingbird", "Harper Lee", "9780446310789")
+
+    if not lib.db.find_member("M0001"):
+        lib.register_member("Nyasha Mukarakkate", "nyasha@gmail.com")
+    if not lib.db.find_member("M0002"):
+        lib.register_member("Bob Muks", "bob@gmail.com")
     
-    lib.add_new_book("The Great Gatsby", "F. Scott Fitzgerald", "9780743273565")
-    lib.add_new_book("To Kill a Mockingbird", "Harper Lee", "9780446310789")
-    lib.register_member("Alice Johnson", "alice@example.com")
-    lib.register_member("Bob Smith", "bob@example.com")
-    
-    print("\n-----------Simple Library System --------")
+    print("\n-----------Library System --------")
     print("1. Search Books")
     print("2. Borrow Book")
     print("3. Return Book")

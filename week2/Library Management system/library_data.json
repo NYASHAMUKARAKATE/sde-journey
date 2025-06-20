@@ -1,0 +1,34 @@
+{
+  "books": [
+    {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "isbn": "9780743273565",
+      "is_available": true,
+      "last_borrowed": null
+    },
+    {
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "isbn": "9780446310789",
+      "is_available": true,
+      "last_borrowed": null
+    }
+  ],
+  "members": [
+    {
+      "name": "Alice Johnson",
+      "member_id": "M0001",
+      "email": "alice@example.com",
+      "borrowed_books": [],
+      "fees": 0.0
+    },
+    {
+      "name": "Bob Smith",
+      "member_id": "M0002",
+      "email": "bob@example.com",
+      "borrowed_books": [],
+      "fees": 0.0
+    }
+  ]
+}
