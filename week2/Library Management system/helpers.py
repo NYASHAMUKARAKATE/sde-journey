@@ -6,18 +6,10 @@ def calculate_fees(days_overdue):
     return 2.00 + (days_overdue * 0.25)
 
 def send_reminder_email(member, book, days_overdue):
-    """Generate reminder email content"""
-    subject = f"Overdue Book: {book.title}"
-    body = (f"Dear {member.name},\n\n"
-            f"Your book '{book.title}' is {days_overdue} days overdue.\n"
-            f"Please return it immediately to avoid additional fees.")
+    print(f"Reminder: {member.name} ({member.email}) has '{book.title}' overdue by {days_overdue} days.")
 
-    print(f"Email sent to {member.email}:\n{subject}\n{body}")
-    
 def validate_date(date_str):
-    """Check if date string is correct (YYYY-MM-DD)"""
     try:
-        datetime.strptime(date_str, "%Y-%m-%d")
-        return True
-    except ValueError:
-        return False
+        return datetime.fromisoformat(date_str)
+    except Exception:
+        return None

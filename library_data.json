@@ -5,28 +5,32 @@
       "author": "F. Scott Fitzgerald",
       "isbn": "9780743273565",
       "is_available": true,
-      "last_borrowed": null
+      "borrow_date": null,
+      "due_date": null,
+      "return_date": null
     },
     {
       "title": "To Kill a Mockingbird",
       "author": "Harper Lee",
       "isbn": "9780446310789",
       "is_available": true,
-      "last_borrowed": null
+      "borrow_date": null,
+      "due_date": null,
+      "return_date": null
     }
   ],
   "members": [
     {
       "name": "Alice Johnson",
       "member_id": "M0001",
-      "email": "alice@example.com",
+      "email": "alice@gmail.com",
       "borrowed_books": [],
       "fees": 0.0
     },
     {
-      "name": "Bob Smith",
-      "member_id": "M0002",
-      "email": "bob@example.com",
+      "name": "Nyasha",
+      "member_id": "M0003",
+      "email": "nyasha@gmail.com",
       "borrowed_books": [],
       "fees": 0.0
     }

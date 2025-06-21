@@ -5,23 +5,23 @@ class Member:
         self.email = email
         self.borrowed_books = borrowed_books if borrowed_books is not None else []
         self.fees = fees
-    
+
     def borrow_book(self, book):
         if book.is_available:
             self.borrowed_books.append(book.isbn)
             book.is_available = False
             return True
         return False
-    
+
     def return_book(self, book):
         if book.isbn in self.borrowed_books:
             self.borrowed_books.remove(book.isbn)
             book.is_available = True
             return True
         return False
-    
+
     def search_match(self, query):
-        return query.lower() in self.name.lower()
+        return query.lower() in self.name.lower() or query.lower() in self.email.lower()
 
     def to_dict(self):
         return {

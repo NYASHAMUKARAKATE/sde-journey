@@ -49,3 +49,9 @@ class Database:
             if member.member_id == member_id:
                 return member
         return None
+    
+    def delete_book(self, isbn):
+        self.books = [b for b in self.books if b.isbn != isbn]
+    
+    def delete_member(self, member_id):
+        self.members = [m for m in self.members if m.member_id != member_id]

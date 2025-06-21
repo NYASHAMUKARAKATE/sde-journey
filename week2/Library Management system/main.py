@@ -1,59 +1,86 @@
 from library import Library
-from book import Book
-from member import Member
 
 def main():
     lib = Library()
 
-    
-    if not lib.db.find_book("9780743273565"):
-        lib.add_new_book("The Great Gatsby", "F. Scott Fitzgerald", "9780743273565")
-    if not lib.db.find_book("9780446310789"):
-        lib.add_new_book("To Kill a Mockingbird", "Harper Lee", "9780446310789")
-
-    if not lib.db.find_member("M0001"):
-        lib.register_member("Nyasha Mukarakkate", "nyasha@gmail.com")
-    if not lib.db.find_member("M0002"):
-        lib.register_member("Bob Muks", "bob@gmail.com")
-    
-    print("\n-----------Library System --------")
-    print("1. Search Books")
-    print("2. Borrow Book")
-    print("3. Return Book")
-    print("4. Add New Member")
-    print("5. Exit")
-    
     while True:
-        choice = input("\nEnter choice: ")
-        
+        print("\n--- Library Menu ---")
+        print("1. Register Member")
+        print("2. Add Book")
+        print("3. Borrow Book")
+        print("4. Return Book")
+        print("5. Search Books")
+        print("6. List Overdue Books")
+        print("7. Admin: List All Members")
+        print("8. Admin: Delete Book")
+        print("9. Admin: Delete Member")
+        print("10. Exit")
+        choice = input("Choose an option: ")
+
         if choice == "1":
-            query = input("Search books: ")
-            results = lib.search_books(query)
-            for book in results:
-                print(f"- {book}")
-        
-        elif choice == "2":
-            member_id = input("Member ID: ")
-            isbn = input("Book ISBN: ")
-            print(lib.borrow_book(member_id, isbn))
-        
-        elif choice == "3":
-            member_id = input("Member ID: ")
-            isbn = input("Book ISBN: ")
-            print(lib.return_book(member_id, isbn))
-        
-        elif choice == "4":
             name = input("Name: ")
             email = input("Email: ")
             member = lib.register_member(name, email)
             print(f"Registered {name} with ID {member.member_id}")
-        
+
+        elif choice == "2":
+            title = input("Book Title: ")
+            author = input("Author: ")
+            isbn = input("ISBN: ")
+            try:
+                lib.add_new_book(title, author, isbn)
+                print("Book added.")
+            except Exception as e:
+                print(f"Error: {e}")
+
+        elif choice == "3":
+            member_id = input("Member ID: ")
+            isbn = input("Book ISBN: ")
+            print(lib.borrow_book(member_id, isbn))
+
+        elif choice == "4":
+            member_id = input("Member ID: ")
+            isbn = input("Book ISBN: ")
+            print(lib.return_book(member_id, isbn))
+
         elif choice == "5":
+            query = input("Search query: ")
+            results = lib.search_books(query)
+            if results:
+                for book in results:
+                    print(f"{book.title} by {book.author} (ISBN: {book.isbn}) - {'Available' if book.is_available else 'Checked out'}")
+            else:
+                print("No books found.")
+
+        elif choice == "6":
+            overdue = lib.list_overdue_books()
+            if overdue:
+                for book in overdue:
+                    print(f"{book.title} (ISBN: {book.isbn}) is overdue!")
+            else:
+                print("No overdue books.")
+
+        elif choice == "7":
+            members = lib.list_members()
+            for m in members:
+                print(f"{m.name} (ID: {m.member_id}, Email: {m.email}, Fees: ${m.fees:.2f})")
+
+        elif choice == "8":
+            isbn = input("ISBN of book to delete: ")
+            lib.delete_book(isbn)
+            print("Book deleted.")
+
+        elif choice == "9":
+            member_id = input("Member ID to delete: ")
+            lib.delete_member(member_id)
+            print("Member deleted.")
+
+        elif choice == "10":
             print("Goodbye!")
             break
-        
+
         else:
-            print("oops you have entered an invalid choice, try again")
+            print("Invalid option.")
 
 if __name__ == "__main__":
     main()
