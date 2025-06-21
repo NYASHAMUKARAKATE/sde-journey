@@ -1,24 +1,28 @@
 import json
+import pickle
+import os
 
 class BankStorage:
-    def __init__(self, file="accounts.json"):
-        self.file = file
-        
+    def __init__(self, filename="accounts.pkl"):
+        self.filename = filename
+
     def save(self, accounts):
         """Save accounts to file with error handling"""
         try:
-            with open(self.file, 'w') as f:
-                # Only save essential data
-                data = {
-                    name: {
-                        "owner": acc.owner,
-                        "balance": acc.balance,
-                        "type": type(acc).__name__
-                    }
-                    for name, acc in accounts.items()
-                }
-                json.dump(data, f, indent=2)
+            with open(self.filename, "wb") as f:
+                pickle.dump(accounts, f)
             return True
         except Exception as e:
-            print(f"Save failed: {e}")
+            print(f"Save error: {e}")
             return False
+
+    def load(self):
+        """Load accounts from file with error handling"""
+        if not os.path.exists(self.filename):
+            return {}
+        try:
+            with open(self.filename, "rb") as f:
+                return pickle.load(f)
+        except Exception as e:
+            print(f"Load error: {e}")
+            return {}
