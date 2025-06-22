@@ -1,3 +1,7 @@
+![Progress](https://img.shields.io/badge/Python_Journey-65%25-yellowgreen)
+![Lines of Code](https://img.shields.io/badge/Lines_of_Code-1.2k-blue)
+![Projects](https://img.shields.io/badge/Completed_Projects-6-brightgreen)
+
 Welcome to my software development journey! 
 This repository documents my transformation from a beginner to a job-ready software engineer through daily coding challenges, projects, and learning milestones.
 
