@@ -4,6 +4,7 @@ naive recursive fib(n) (O(2ⁿ)).
 Implementing memoization manually (using a dictionary).
 comparing the execution times for n = 35."""
 
+from functools import lru_cache
 import time  
 
 # Naive recursive  
