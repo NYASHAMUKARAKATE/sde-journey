@@ -140,7 +140,7 @@ See the `/assets` folder in the portfolio website for project screenshots and ic
 
 ## 🔗 Live Demo
 
-`
+`<https://NYASHAMUKARAKATE.github.io/sde-journey/>
 
 ---
 
