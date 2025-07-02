@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nyasha's Event Playground</title>
+    <style>
+      body {
+        background: #232946;
+        color: #eebbc3;
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        text-align: center;
+        color: #b8c1ec;
+        margin-top: 32px;
+      }
+      #hoverArea {
+        width: 250px;
+        height: 60px;
+        background: #b8c1ec;
+        margin: 24px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1.1em;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .item {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 22px;
+        background: #eebbc3;
+        color: #232946;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.2s, color 0.2s;
+      }
+      .item:hover {
+        background: #6eeb83;
+        color: #232946;
+      }
+      #clickBtn {
+        display: block;
+        margin: 32px auto 0 auto;
+        padding: 14px 36px;
+        background: #6eeb83;
+        color: #232946;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      #clickBtn:hover {
+        background: #eebbc3;
+      }
+      #textInput {
+        display: block;
+        margin: 24px auto;
+        padding: 10px 18px;
+        border-radius: 8px;
+        border: none;
+        font-size: 1em;
+        background: #393e46;
+        color: #eebbc3;
+      }
+      form {
+        background: #393e46;
+        padding: 18px 24px;
+        border-radius: 10px;
+        max-width: 350px;
+        margin: 24px auto;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      form input[type="text"] {
+        width: 70%;
+        padding: 8px;
+        border-radius: 6px;
+        border: none;
+        margin-right: 8px;
+        background: #232946;
+        color: #eebbc3;
+      }
+      form button {
+        padding: 8px 18px;
+        border-radius: 6px;
+        border: none;
+        background: #b8c1ec;
+        color: #232946;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      form button:hover {
+        background: #6eeb83;
+      }
+      .items-title {
+        text-align: center;
+        margin-top: 30px;
+        color: #6eeb83;
+        font-size: 1.2em;
+        letter-spacing: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome, Nyasha! 🎉</h1>
+    <button id="clickBtn">Click this button, Nyasha!</button>
+    <div id="hoverArea">Hover over me!</div>
+    <input
+      id="textInput"
+      type="text"
+      placeholder="Type something and see magic...."
+    />
+
+    <form>
+      <input type="text" placeholder="Type and submit, Nyasha!" />
+      <button type="submit">Send</button>
+    </form>
+
+    <div class="items-title">My Interactive Items</div>
+    <div>
+      <span class="item">WOW</span>
+      <span class="item">Look at me!</span>
+      <span class="item">Actually doing something</span>
+    </div>
+
+    <script src="event-listeners.js"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Internal JavaScript</title>
+</head>
+<body>
+    <h1>Welcome to My JavaScript Playground</h1>
+    <p>Click the button below to see JavaScript in action. Try it as many times as you like!</p>
+    <button onclick="showMessage()">Click Me</button>
+    <button onclick="clearMessage()" style="margin-left:10px;">Clear</button>
+    <p id="output" style="font-weight: bold; color: #4caf50;"></p>
+    
+    <script>
+        function showMessage() {
+            const messages = [
+                "Button clicked! JavaScript is awesome.",
+                "You just triggered a function!",
+                "Keep exploring and coding, Nyasha!",
+                "Every click is a step forward.",
+                "Learning JavaScript is fun!"
+            ];
+            // Pick a random message
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            document.getElementById('output').textContent = messages[randomIndex];
+        }
+        function clearMessage() {
+            document.getElementById('output').textContent = '';
+        }
+    </script>
+</body>
+</html>

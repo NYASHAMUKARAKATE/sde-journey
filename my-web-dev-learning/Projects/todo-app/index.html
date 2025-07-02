@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My To-Do</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <h1 id="greeting"></h1>
+      <form id="task-form">
+        <input
+          type="text"
+          id="task-input"
+          placeholder="What's on your mind?"
+          required
+        />
+        <select id="category" required>
+          <option value="">Category</option>
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Urgent">Urgent</option>
+        </select>
+        <input type="date" id="due-date" required />
+        <button type="submit">Add Task</button>
+      </form>
+      <div class="controls">
+        <button id="mark-all" type="button">Mark All as Done</button>
+        <button id="clear-all" type="button">Clear All</button>
+      </div>
+      <div class="filters">
+        <label for="filter">Show:</label>
+        <select id="filter">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="pending">Pending</option>
+        </select>
+      </div>
+      <div id="counter"></div>
+      <ul id="task-list"></ul>
+    </div>
+  </body>
+</html>

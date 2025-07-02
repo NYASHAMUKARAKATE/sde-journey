@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Selectors Example</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #232946;
+        color: #eebbc3;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        background: #393e46;
+        border-radius: 12px;
+        padding: 24px;
+        margin: 32px auto;
+        max-width: 500px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      }
+      #header {
+        text-align: center;
+        color: #b8c1ec;
+        margin-top: 32px;
+      }
+      nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+      }
+      nav li {
+        background: #eebbc3;
+        color: #232946;
+        padding: 8px 18px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background 0.2s;
+        cursor: pointer;
+      }
+      nav li:hover {
+        background: #b8c1ec;
+        color: #232946;
+      }
+      .btn {
+        display: block;
+        margin: 32px auto 0 auto;
+        padding: 12px 32px;
+        background: #b8c1ec;
+        color: #232946;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .btn:hover {
+        background: #eebbc3;
+      }
+      p {
+        background: #232946;
+        padding: 10px 16px;
+        border-radius: 6px;
+        margin: 12px 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="header">Welcome, Nyasha!</h1>
+    <div class="container">
+      <p>Hello Nyasha, this is your DOM playground.</p>
+      <p>Try clicking the button or hovering over the navigation items.</p>
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Projects</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+    </div>
+    <button class="btn">Click me, Nyasha!</button>
+    <script src="selectors.js"></script>
+    <script src="element-creation.js"></script>
+  </body>
+</html>
