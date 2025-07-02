@@ -1,144 +1,162 @@
-![Progress](https://img.shields.io/badge/Python_Journey-65%25-yellowgreen)
-![Lines of Code](https://img.shields.io/badge/Lines_of_Code-1.2k-blue)
-![Projects](https://img.shields.io/badge/Completed_Projects-6-brightgreen)
+# Nyasha Mukarakate | SDE Journey Portfolio
 
-Welcome to my software development journey! 
-This repository documents my transformation from a beginner to a job-ready software engineer through daily coding challenges, projects, and learning milestones.
+Welcome to my Software Development Engineer (SDE) learning journey!  
+This repository documents my progress from beginner to intermediate developer, featuring a portfolio website and a wide range of practical coding projects.
 
-🌟 Featured Projects
-🏦 Banking System
-Location: week2/BankSystem/
-Skills: OOP, Security, Data Persistence
+---
 
-Features:
-Password authentication with PBKDF2 hashing
-Account management (checking/savings accounts)
-Transaction history tracking
-JSON-based data persistence
-Interest calculation for savings accounts
+## 🌟 About Me
 
-Run it:
-cd week2/BankSystem
-python run_bank.py
+Hi! I’m **Nyasha Mukarakate**, an aspiring Software Development Engineer currently studying Computer Science.  
+I’m passionate about building real-world solutions, learning new technologies, and sharing my growth as a developer.
 
-📚 Library Management System
-Location: week3/LibrarySystem/
-Skills: System Design, Data Modeling, CLI Applications
+---
 
-Features:
-Book catalog management with ISBN validation
-Member registration and book borrowing
-Due date tracking and late fee calculation
-Search functionality
-JSON data persistence
+## 🚀 Portfolio Website
 
-Run it:
-cd week3/LibrarySystem
-python main.py
+My portfolio website (in `/my-web-dev-learning/Projects/my-portfolio-website/`) is built with **HTML, CSS, and JavaScript**.  
+It features:
 
+- **Hero Section:** Profile, animated typing effect, and social links (GitHub, LinkedIn, Email)
+- **Journey & About:** My story, motivation, and background
+- **Skills:** Programming languages and tools I use
+- **Projects:**  
+  - Each project card includes a screenshot, description, tech stack, and GitHub link
+  - Projects range from Python desktop apps to interactive web apps
+- **Add Project Button:** Dynamically add new projects to the portfolio
+- **Responsive Design:** Works on desktop and mobile
 
-🔍 File Analyzer
-Location: week1/day2/
-Skills: File Systems, Recursion, Performance Optimization
+---
 
-Features:
-Recursive directory traversal
-File type filtering
-Line counting with comment detection
-Performance benchmarking
+## 🛠️ Projects Included
 
-Run it:
-cd week1/day2
-python file_counter.py
+### Web & App Projects
 
+- **Advanced To-Do List**  
+  *Python, Tkinter, SQLite*  
+  Task management app with filters, persistent storage, and a modern GUI.
 
-📈 Progress Timeline
-Week	Focus Area	                     Key Achievements
-1	    Python Fundamentals	Algorithms,  Big-O analysis, File I/O
-2	    OOP & Security	                 Banking system with authentication
-    	System Design	                   Library management system
-3   	Web Development	                 Building Flask REST API (in progress)
-5	    Databases	                       SQLite integration (upcoming)
+- **To-Do App (Web)**  
+  *HTML, CSS, JavaScript*  
+  Interactive web-based to-do list with task adding, marking, filtering, and localStorage.
 
-🛠 Current Technical Skills
-Languages & Technologies:
-Python (Proficient)
-Git & GitHub
-OOP Principles
-Algorithm Design
-System Architecture
+- **Quiz App**  
+  *JavaScript, HTML, CSS*  
+  Responsive quiz app with animated score, progress tracking, and feedback.
 
-Key Concepts Mastered:
-Time Complexity Analysis
-Recursion & Memoization
-Password Hashing & Security
-Data Serialization (JSON)
-CLI Application Development
+- **Weather App**  
+  *JavaScript, HTML, CSS*  
+  Real-time weather app using API integration and a smooth UI.
 
-📂 Repository Structure
-sde-journey/
-├── week1/                  # Python fundamentals
-│   ├── day1/               # Algorithms & Big-O
-│   ├── day2/               # System tools
-│   └── README.md
-├── week2/                  # OOP & Security
-│   ├── BankSystem/         # Banking application
-│   └── README.md
-├── week3/                  # System Design
-│   ├── LibrarySystem/      # Library management
-│   └── README.md
-├── showcase/               # Portfolio highlights
-├── .github/                # CI/CD workflows
-└── README.md               # You are here!
+- **Bank System**  
+  *Python*  
+  Console-based banking system for account management, deposits, withdrawals, and balance checks.
 
-🚀 How to Run Projects
-Banking System:
-cd week2/BankSystem
-python run_bank.py
+- **Library Management System**  
+  *Python, SQLite*  
+  Manages books, members, and borrowing records with search and overdue tracking.
 
-Creates sample account
-Processes transactions
-Calculates interest
-Saves account data
+---
 
-Library System:
-cd week3/LibrarySystem
-python main.py
+## 📚 Weekly Learning Folders
 
-Provides interactive menu
-Manages books and members
-Handles borrowing/returning
-Calculates late fees
+### `week1/` — Python Fundamentals & Data Structures
 
-File Analyzer:
-cd week1/day2
-python file_counter.py
+- **calculator_app.py** — Basic calculator with arithmetic operations
+- **unit_convertor.py** — Unit converter for length, temperature, weight, and volume
+- **Fibonacci.py** — Recursion, memoization, and benchmarking
+- **code_analyzer.py** — Analyze Python code files for lines, functions, and classes
+- **file_counter.py** — Count Python files and lines in a directory
+- **Arrays/** — Binary search, max subarray, rotate array, two sums
+- **LinkedLists/** — Reverse linked list (iterative & recursive)
+- **Strings/** — Longest substring without repeats, valid palindrome, etc.
 
-Scans directory structure
-Counts Python files
-Analyzes code statistics
+### `week2-3/` — Python OOP, GUI, and Systems
 
-🔧 Recent Improvements
-Added ISBN validation to library system
-Implemented password strength enforcement in banking system
-Enhanced file counter with recursive directory traversal
-Added comprehensive error handling
-Improved data persistence mechanisms
+- **to do list app/**  
+  - `todo_gui.py` — Feature-rich To-Do List app with CustomTkinter GUI  
+  - `todo.py` — SQLite-backed task management logic  
+  - `README.md` — Features, requirements, and screenshots
 
-🌐 Next Steps
-Web Interface for banking system (Flask)
-Database Migration from JSON to SQLite
-User Authentication for library system
-Automated Testing with pytest
-Deployment to cloud platform
+- **BankSystem/**  
+  - `run_bank.py` — Console banking system with account creation, login, transactions  
+  - `bank/` — Modular OOP code for accounts, storage, and security
 
-🤝 Connect With Me
-LinkedIn: https://www.linkedin.com/in/nyasha-mukarakate-361905356/
-Portfolio: To be added
-Email: mukarakatenyasha34@gmail.com
+- **Library Management system/**  
+  - `main.py` — Library system for managing books and members  
+  - `library.py`, `database.py`, `book.py`, `member.py`, `helpers.py` — Modular code for library operations  
+  - `library_data.json` — Sample data
 
-📜 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+- **banking program/**  
+  - `main.py` — Simple banking CLI for deposits, withdrawals, and balance
 
-"The expert in anything was once a beginner."
-This repository documents my journey from beginner to expert, one commit at a time.
+---
+
+## 🧑‍💻 Skills
+
+- **Languages:** Python, JavaScript, HTML, CSS, SQL
+- **Frameworks/Tools:** Tkinter, CustomTkinter, SQLite, Git & GitHub
+- **Concepts:** Problem-solving, OOP, UI/UX basics, API usage, data persistence
+
+---
+
+## 📂 Folder Structure
+
+```
+my-web-dev-learning/
+  Projects/
+    my-portfolio-website/
+    todo-app/
+    quiz-app/
+    weather-app/
+    BankSystem/
+    Library Management system/
+    ...
+  week1/
+    calculator_app.py
+    code_analyzer.py
+    Fibonacci.py
+    file_counter.py
+    unit_convertor.py
+    Arrays/
+    LinkedLists/
+    Strings/
+    ...
+  week2/
+    banking program/
+    BankSystem/
+    Library Management system/
+    to do list app/
+    ...
+```
+
+---
+
+## 📸 Screenshots
+
+See the `/assets` folder in the portfolio website for project screenshots and icons.
+
+---
+
+## 🔗 Live Demo
+ 
+`
+
+---
+
+## 📬 Contact
+
+- [GitHub](https://github.com/NYASHAMUKARAKATE)
+- [LinkedIn](https://www.linkedin.com/in/nyasha-mukarakate-361905356)
+- Email: mukarakatenyasha34@gmail.com
+
+---
+
+## 🙏 Acknowledgements
+
+Thanks for visiting my portfolio!  
+Feedback, suggestions, and collaboration are always welcome.
+
+---
+
+**Keep learning. Keep building. Keep
