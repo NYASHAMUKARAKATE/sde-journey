@@ -49,7 +49,7 @@ It features:
   Real-time weather app using API integration and a smooth UI.
 
 - **Bank System**  
-  *Python, css, html, js *  
+  *Python, css, html, js*  
   a web app banking system for account management, deposits, withdrawals, and balance checks.
 
 - **Library Management System**  
