@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block title %}Admin Panel{% endblock %} {% block
+content %}
+<div class="admin-panel">
+  <h2>Admin Dashboard</h2>
+
+  <div class="stats">
+    <div class="stat-card">
+      <h3>Total Accounts</h3>
+      <p>{{ accounts|length }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Total Balance</h3>
+      <p>${{ "%.2f"|format(accounts.values()|sum(attribute='balance')) }}</p>
+    </div>
+  </div>
+
+  <div class="account-list">
+    <h3>All Accounts</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Balance</th>
+          <th>Transactions</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for username, account in accounts.items() %}
+        <tr>
+          <td>{{ username }}</td>
+          <td>${{ "%.2f"|format(account.balance) }}</td>
+          <td>{{ account.history|length }}</td>
+          <td>
+            <a
+              href="{{ url_for('admin_delete', username=username) }}"
+              class="btn btn-danger"
+              onclick="return confirm('Are you sure you want to delete this account?')"
+            >
+              Delete
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block title %}Transactions{% endblock %} {% block
+content %}
+<div class="transactions">
+  <h2>Transaction History</h2>
+
+  <div class="transaction-filters">
+    <form id="filter-form">
+      <select name="type">
+        <option value="">All Types</option>
+        <option value="deposit">Deposits</option>
+        <option value="withdrawal">Withdrawals</option>
+        <option value="transfer">Transfers</option>
+        <option value="interest">Interest</option>
+      </select>
+      <input type="date" name="start_date" />
+      <input type="date" name="end_date" />
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+  </div>
+
+  <table class="transaction-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for txn in account.history|reverse %}
+      <tr>
+        <td>{{ txn['timestamp'] }}</td>
+        <td>
+          {% if txn['type'] == 'deposit' %} Deposit {% elif txn['type'] ==
+          'withdrawal' %} Withdrawal {% elif txn['type'] == 'transfer_out' %}
+          Transfer to {{ txn['recipient'] }} {% elif txn['type'] ==
+          'transfer_in' %} Transfer from {{ txn['sender'] }} {% elif txn['type']
+          == 'interest' %} Interest Earned {% endif %}
+        </td>
+        <td
+          class="{% if txn['type'] in ['deposit', 'transfer_in', 'interest'] %}positive{% else %}negative{% endif %}"
+        >
+          ${% if txn['type'] in ['withdrawal', 'transfer_out'] %}-{% endif %}{{
+          "%.2f"|format(txn['amount']) }}
+        </td>
+        <td>${{ "%.2f"|format(txn['balance']) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends "base.html" %} {% block title %}Dashboard{% endblock %} {% block
+content %}
+<div class="dashboard">
+  <div class="welcome-banner">
+    <h2>Welcome, {{ account.owner }}!</h2>
+    <p>
+      Last login: {{ account.history[-1]['timestamp'] if account.history else
+      'First login' }}
+    </p>
+  </div>
+
+  <div class="balance-card">
+    <h3>Account Balance</h3>
+    <div class="balance-amount">${{ "%.2f"|format(account.balance) }}</div>
+  </div>
+
+  <div class="quick-actions">
+    <h3>Quick Actions</h3>
+    <div class="action-grid">
+      <form action="{{ url_for('deposit') }}" method="post" class="action-form">
+        <h4>Deposit</h4>
+        <input
+          type="number"
+          name="amount"
+          step="0.01"
+          min="0.01"
+          placeholder="Amount"
+          required
+        />
+        <button type="submit" class="btn btn-primary">Deposit</button>
+      </form>
+
+      <form
+        action="{{ url_for('withdraw') }}"
+        method="post"
+        class="action-form"
+      >
+        <h4>Withdraw</h4>
+        <input
+          type="number"
+          name="amount"
+          step="0.01"
+          min="0.01"
+          placeholder="Amount"
+          required
+        />
+        <button type="submit" class="btn btn-primary">Withdraw</button>
+      </form>
+
+      <form
+        action="{{ url_for('transfer') }}"
+        method="post"
+        class="action-form"
+      >
+        <h4>Transfer</h4>
+        <input
+          type="number"
+          name="amount"
+          step="0.01"
+          min="0.01"
+          placeholder="Amount"
+          required
+        />
+        <input
+          type="text"
+          name="recipient"
+          placeholder="Recipient username"
+          required
+        />
+        <button type="submit" class="btn btn-primary">Transfer</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="recent-transactions">
+    <h3>Recent Transactions</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Balance</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for txn in account.history[-5:]|reverse %}
+        <tr>
+          <td>{{ txn['timestamp'] }}</td>
+          <td>
+            {% if txn['type'] == 'deposit' %} Deposit {% elif txn['type'] ==
+            'withdrawal' %} Withdrawal {% elif txn['type'] == 'transfer_out' %}
+            Transfer to {{ txn['recipient'] }} {% elif txn['type'] ==
+            'transfer_in' %} Transfer from {{ txn['sender'] }} {% elif
+            txn['type'] == 'interest' %} Interest Earned {% endif %}
+          </td>
+          <td
+            class="{% if txn['type'] in ['deposit', 'transfer_in', 'interest'] %}positive{% else %}negative{% endif %}"
+          >
+            ${% if txn['type'] in ['withdrawal', 'transfer_out'] %}-{% endif
+            %}{{ "%.2f"|format(txn['amount']) }}
+          </td>
+          <td>${{ "%.2f"|format(txn['balance']) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="{{ url_for('transactions') }}" class="btn btn-secondary"
+      >View All Your Transactions</a
+    >
+  </div>
+</div>
+{% endblock %}
