@@ -1,0 +1,126 @@
+{% extends "base.html" %} {% block title %}Register - BankSystem{% endblock %}
+{% block content %}
+<div class="auth-container">
+  <div class="auth-card">
+    <header class="auth-header">
+      <h1>Create Your Account</h1>
+      <p>Join our secure banking platform today</p>
+    </header>
+
+    <form
+      id="registrationForm"
+      class="auth-form"
+      action="{{ url_for('register') }}"
+      method="post"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          required
+          minlength="4"
+          maxlength="20"
+          pattern="[a-zA-Z0-9_]+"
+          title="Letters, numbers, and underscores only"
+        />
+        <small class="form-hint">4-20 characters (letters, numbers, _)</small>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="password-wrapper">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            minlength="8"
+            data-requirements="uppercase lowercase number special"
+          />
+          <button
+            type="button"
+            class="password-toggle"
+            aria-label="Toggle password visibility"
+          >
+            <span class="toggle-icon">👁</span>
+          </button>
+        </div>
+        <div class="password-strength">
+          <div class="strength-meter">
+            <div class="strength-bar"></div>
+          </div>
+        </div>
+        <small class="form-hint">
+          8+ characters with uppercase, lowercase, number, and special character
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="confirm_password">Confirm Password</label>
+        <input
+          type="password"
+          id="confirm_password"
+          name="confirm_password"
+          required
+        />
+        <small class="form-hint">Re-enter your password</small>
+      </div>
+
+      <div class="form-group">
+        <label for="balance"
+          >Initial Deposit <span class="optional">(optional)</span></label
+        >
+        <div class="currency-input">
+          <span class="currency-symbol">$</span>
+          <input
+            type="number"
+            id="balance"
+            name="balance"
+            step="0.01"
+            min="0"
+            placeholder="0.00"
+          />
+        </div>
+        <small class="form-hint">Minimum $0.01 to activate account</small>
+      </div>
+
+      <div class="form-group terms-group">
+        <input type="checkbox" id="terms" name="terms" required />
+        <label for="terms">
+          I agree to the <a href="/terms" target="_blank">Terms</a> and
+          <a href="/privacy" target="_blank">Privacy Policy</a>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Create Account</button>
+
+      <div class="auth-footer">
+        <p>
+          Already have an account? <a href="{{ url_for('login') }}">Sign in</a>
+        </p>
+      </div>
+    </form>
+  </div>
+
+  <aside class="auth-features">
+    <div class="feature-card">
+      <div class="feature-icon">🔒</div>
+      <h3>Bank-Level Security</h3>
+      <p>256-bit encryption on all transactions</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <h3>Instant Access</h3>
+      <p>Start banking immediately</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📱</div>
+      <h3>Mobile Friendly</h3>
+      <p>Access from any device</p>
+    </div>
+  </aside>
+</div>
+{% endblock %}
