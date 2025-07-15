@@ -49,8 +49,8 @@ It features:
   Real-time weather app using API integration and a smooth UI.
 
 - **Bank System**  
-  *Python*  
-  Console-based banking system for account management, deposits, withdrawals, and balance checks.
+  *Python, css, html, js *  
+  a web app banking system for account management, deposits, withdrawals, and balance checks.
 
 - **Library Management System**  
   *Python, SQLite*  
@@ -95,7 +95,7 @@ It features:
 ## 🧑‍💻 Skills
 
 - **Languages:** Python, JavaScript, HTML, CSS, SQL
-- **Frameworks/Tools:** Tkinter, CustomTkinter, SQLite, Git & GitHub
+- **Frameworks/Tools:** Flask, SQLite, Git & GitHub
 - **Concepts:** Problem-solving, OOP, UI/UX basics, API usage, data persistence
 
 ---
