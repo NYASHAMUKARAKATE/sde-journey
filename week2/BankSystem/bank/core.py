@@ -50,6 +50,8 @@ class BankAccount:
             'balance': recipient_account.balance,
             'timestamp': self._get_timestamp()
         })
+        
+        return True
     
     def _get_timestamp(self):
         """Helper method to get current timestamp"""
