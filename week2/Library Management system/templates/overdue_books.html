@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block title %}Overdue Books - Library Management
+System{% endblock %} {% block content %}
+<h1>Overdue Books</h1>
+
+{% if books %}
+<div class="alert alert-warning">
+  <strong>{{ books|length }}</strong> overdue book(s) found.
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>ISBN</th>
+        <th>Due Date</th>
+        <th>Days Overdue</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in books %}
+      <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.isbn }}</td>
+        <td>{{ book.due_date.strftime('%Y-%m-%d') }}</td>
+        <td>{{ (now - book.due_date).days }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="alert alert-success">No overdue books found!</div>
+{% endif %}
+
+<a href="/books" class="btn btn-outline-primary">Back to All Books</a>
+{% endblock %}

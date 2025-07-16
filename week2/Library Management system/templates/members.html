@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% block title %}Members - Library Management System{%
+endblock %} {% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1>Library Members</h1>
+  <a href="/members/register" class="btn btn-primary">Register Member</a>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Borrowed</th>
+        <th>Fees</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for member in members %}
+      <tr>
+        <td>{{ member.member_id }}</td>
+        <td>{{ member.name }}</td>
+        <td>{{ member.email }}</td>
+        <td>{{ member.borrowed_books|length }}</td>
+        <td>${{ "%.2f"|format(member.fees) }}</td>
+        <td>
+          <div class="btn-group btn-group-sm">
+            <a href="/books/borrow" class="btn btn-outline-primary">Borrow</a>
+            <form method="POST" action="/members/delete" class="d-inline">
+              <input
+                type="hidden"
+                name="member_id"
+                value="{{ member.member_id }}"
+              />
+              <button
+                type="submit"
+                class="btn btn-outline-danger"
+                onclick="return confirm('Delete this member?')"
+              >
+                Delete
+              </button>
+            </form>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

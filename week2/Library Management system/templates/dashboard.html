@@ -1,0 +1,57 @@
+{% extends "base.html" %} {% block title %}Dashboard - Library Management
+System{% endblock %} {% block content %}
+<div class="row">
+  <div class="col-md-3">
+    <div class="card text-white bg-primary mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Total Books</h5>
+        <p class="card-text display-4">{{ total_books }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Available Books</h5>
+        <p class="card-text display-4">{{ available_books }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-white bg-info mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Total Members</h5>
+        <p class="card-text display-4">{{ total_members }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-white bg-danger mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Overdue Books</h5>
+        <p class="card-text display-4">{{ overdue_books }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Quick Actions</h5>
+      </div>
+      <div class="card-body">
+        <div class="d-grid gap-2">
+          <a href="/books/add" class="btn btn-primary">Add Book</a>
+          <a href="/members/register" class="btn btn-success"
+            >Register Member</a
+          >
+          <a href="/books/borrow" class="btn btn-warning">Borrow Book</a>
+          <a href="/books" class="btn btn-info">View All Books</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
