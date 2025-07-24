@@ -1,50 +1,70 @@
 {% extends "base.html" %} {% block title %}Add Book - Library Management
 System{% endblock %} {% block content %}
-<div class="row justify-content-center">
-  <div class="col-md-6">
-    <div class="card">
-      <div class="card-header bg-primary text-white">
-        <h5 class="card-title mb-0">Add New Book</h5>
-      </div>
-      <div class="card-body">
-        <form method="POST" action="/books/add">
-          <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input
-              type="text"
-              class="form-control"
-              id="title"
-              name="title"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="author" class="form-label">Author</label>
-            <input
-              type="text"
-              class="form-control"
-              id="author"
-              name="author"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="isbn" class="form-label">ISBN</label>
-            <input
-              type="text"
-              class="form-control"
-              id="isbn"
-              name="isbn"
-              required
-            />
-          </div>
-          <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Add Book</button>
-            <a href="/books" class="btn btn-outline-secondary">Cancel</a>
-          </div>
-        </form>
-      </div>
+<div class="card border-0 shadow-lg">
+  <div class="card-header bg-primary text-white py-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <h5 class="mb-0"><i class="bi bi-plus-circle"></i> Add New Book</h5>
+      <a href="/books" class="btn btn-sm btn-light">
+        <i class="bi bi-arrow-left"></i> Back
+      </a>
     </div>
+  </div>
+  <div class="card-body p-4">
+    <form method="POST" action="/books/add" class="needs-validation" novalidate>
+      <div class="mb-4">
+        <label for="title" class="form-label fw-bold">Title</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-book"></i></span>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            required
+          />
+          <div class="invalid-feedback">Please provide a book title.</div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="author" class="form-label fw-bold">Author</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-person"></i></span>
+          <input
+            type="text"
+            class="form-control"
+            id="author"
+            name="author"
+            required
+          />
+          <div class="invalid-feedback">Please provide an author name.</div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="isbn" class="form-label fw-bold">ISBN</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-upc-scan"></i></span>
+          <input
+            type="text"
+            class="form-control"
+            id="isbn"
+            name="isbn"
+            required
+          />
+          <div class="invalid-feedback">Please provide a valid ISBN.</div>
+        </div>
+      </div>
+
+      <div class="d-grid gap-3 mt-4">
+        <button type="submit" class="btn btn-primary py-2">
+          <i class="bi bi-save"></i> Add Book
+        </button>
+        <a href="/books" class="btn btn-outline-secondary py-2">
+          <i class="bi bi-x-circle"></i> Cancel
+        </a>
+      </div>
+    </form>
   </div>
 </div>
 {% endblock %}
